@@ -1,0 +1,19 @@
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(184deg, rgb(247, 130, 165) 10%, rgb(219, 213, 213) 100%, rgb(233, 219, 219) 100%);
+}
+.login >h1 {
+    text-align: center;
+}
+.login > form {
+    padding: 2rem;
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+}
+.login span { 
+    cursor: pointer;
+}

@@ -1,0 +1,14 @@
+@import "./dashboard.css";
+@import "./navigation.css";
+@import "./nameinitials.css";
+@import "./login.css";
+@import "./404.css";
+
+:root {
+  font-family: 'Nunito', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}

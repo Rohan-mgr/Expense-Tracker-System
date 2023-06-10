@@ -1,0 +1,28 @@
+.name__initials {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #6200EE;
+    display: grid;
+    place-items: center;
+    margin-right: 7px;
+}
+
+.name__initials>span {
+    display: block;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #ffffff;
+    line-height: 16.41px;
+}
+.name__initials__wrapper div p:first-child {
+    font-weight: bold;
+    font-size: .9rem;
+}
+.name__initials__wrapper div p:last-child {
+    margin-top: -5px;
+}
+.name__initials__wrapper div p {
+    margin: 0;
+    padding: 0;
+}

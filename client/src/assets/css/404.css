@@ -1,0 +1,16 @@
+.page__not__found {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(184deg, rgb(247, 130, 165) 10%, rgb(219, 213, 213) 100%, rgb(233, 219, 219) 100%);
+}
+.page__not__found > h1 {
+    font-size: 8rem;
+    color:rgb(233, 219, 219)
+}
+
+.page__not__found > p {
+    cursor: pointer;
+}

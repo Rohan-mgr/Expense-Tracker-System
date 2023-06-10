@@ -1,0 +1,39 @@
+ul {
+    list-style: none;
+    padding: 0 !important; 
+    width: 100%;
+    font-weight: 600;
+}
+ul li {
+    margin: 10px 0;
+}
+ul li a {
+    color: rgba(34, 34, 96, .6);
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+}
+.active {
+    display: block;
+    position: relative;
+    padding-left: 10px; 
+    color: rgba(34, 34, 96, 1);
+}
+.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #222260;
+    border-radius: 0 10px 10px 0;
+}
+.name__initials__wrapper {
+    display: flex;
+    align-items: center;
+    color: rgba(34, 34, 96, 1);
+    margin-top: .5rem; 
+    margin-bottom: 1.5rem;
+}
