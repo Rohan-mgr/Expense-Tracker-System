@@ -1,9 +1,8 @@
 import { Navigate } from "react-router-dom";
-// import { _getSecureLs } from "../../helper/storage";
+import { _getSecureLs } from "../../utils/storage";
 
 function PrivateRoute({ children }) {
-  //   const { isLoggedIn } = _getSecureLs("auth");
-  const isLoggedIn = true;
+  const { isLoggedIn } = _getSecureLs("auth");
   if (!isLoggedIn) {
     return <Navigate to="/" replace />;
   }
