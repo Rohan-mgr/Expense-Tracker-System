@@ -1,7 +1,13 @@
 import { NavLink } from "react-router-dom";
 import NameInitials from "../nameinitials/NameInitials";
+import { CiViewTimeline } from "react-icons/ci";
+import { MdMoney } from "react-icons/md";
+import { HiOutlineLogout } from "react-icons/hi";
+import { TbPigMoney, TbGraph } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 function Navigation() {
+  const navigate = useNavigate();
   return (
     <nav>
       <div className="name__initials__wrapper">
@@ -17,7 +23,7 @@ function Navigation() {
             to="dashboard"
             className={({ isActive }) => isActive && "active"}
           >
-            Dashboard
+            <TbGraph /> Dashboard
           </NavLink>
         </li>
         <li>
@@ -25,7 +31,7 @@ function Navigation() {
             to="view-transaction"
             className={({ isActive }) => isActive && "active"}
           >
-            View Transaction
+            <CiViewTimeline /> View Transaction
           </NavLink>
         </li>
         <li>
@@ -33,7 +39,7 @@ function Navigation() {
             to="expense"
             className={({ isActive }) => isActive && "active"}
           >
-            Expense
+            <MdMoney /> Expense
           </NavLink>
         </li>
         <li>
@@ -41,10 +47,15 @@ function Navigation() {
             to="income"
             className={({ isActive }) => isActive && "active"}
           >
-            Income
+            <TbPigMoney /> Income
           </NavLink>
         </li>
       </ul>
+      <div className="nav__btn__wrapper">
+        <button onClick={() => navigate("/")}>
+          <HiOutlineLogout /> Sign Out
+        </button>
+      </div>
     </nav>
   );
 }
