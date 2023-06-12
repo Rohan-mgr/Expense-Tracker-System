@@ -1,6 +1,6 @@
 const express = require("express");
 require("dotenv").config();
-const sequelize = require("./config/db");
+// const sequelize = require("./config/db");
 const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
 
@@ -19,11 +19,15 @@ app.use((error, req, res, next) => {
   res.status(status).send({ message: message, status: error.statusCode });
 });
 
-sequelize
-  .sync()
-  .then((result) => {
-    app.listen(process.env.PORT, () =>
-      console.log("Server is listening at port " + process.env.PORT)
-    );
-  })
-  .catch((err) => console.log(err));
+app.listen(process.env.PORT, () =>
+  console.log("Server is listening at port " + process.env.PORT)
+);
+
+// sequelize
+//   .sync()
+//   .then((result) => {
+//     app.listen(process.env.PORT, () =>
+//       console.log("Server is listening at port " + process.env.PORT)
+//     );
+//   })
+//   .catch((err) => console.log(err));
