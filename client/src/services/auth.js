@@ -11,5 +11,6 @@ export const handleUserSignin = async (credentials) => {
   const URL = AUTH_ENDPOINT.signIn;
   console.log(URL);
   const response = await httpAuth.post(URL, JSON.stringify(credentials));
+  console.log(response);
   return response;
 };
