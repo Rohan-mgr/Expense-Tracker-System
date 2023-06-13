@@ -2,6 +2,7 @@
 @import "./navigation.css";
 @import "./nameinitials.css";
 @import "./login.css";
+@import "./expense_income.css";
 @import "./404.css";
 
 :root {

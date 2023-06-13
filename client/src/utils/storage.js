@@ -27,8 +27,3 @@ export const getLoggedUser = () => {
   const loggedUser = ls.get("auth");
   return loggedUser?.user;
 };
-
-export const getCurrentUserId = () => {
-  const userData = ls.get("auth");
-  return userData?.user;
-};

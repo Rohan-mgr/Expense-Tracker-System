@@ -11,6 +11,9 @@ ul {
 ul li {
     margin: 10px 0;
 }
+ul li a:hover {
+    color: rgba(34, 34, 96, 1);
+}
 nav svg{
     margin-top: -4px;
 }

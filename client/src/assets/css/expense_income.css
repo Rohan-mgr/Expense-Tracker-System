@@ -1,0 +1,54 @@
+.container-fluid {
+    background: rgba(252, 246, 249, 0.78);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    padding: 1rem .5rem; 
+    height: calc(100vh - 2rem);
+    border-radius: 15px;
+}
+.container-fluid .row button svg {
+    margin-top: -4px;
+    margin-right: .3rem;
+    font-size: 1.2rem;
+}
+.container-fluid > h4 {
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.container-fluid .row form input,
+.container-fluid .row form textarea,
+.container-fluid .row form select {
+    background: transparent;
+    border: 2px solid #FFFFFF;
+}
+
+.container-fluid .row form input:focus,
+.container-fluid .row form textarea:focus,
+.container-fluid .row form select:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.expense__income__header {
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(4.5px);
+    text-align: center;
+}
+.expense__income__header > h5 > strong {
+    color: crimson;
+}
+
+@media (max-width: 480px) {
+    .container-fluid {
+        height: 100vh;
+        border-radius: 0;
+    }
+}
