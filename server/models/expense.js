@@ -16,19 +16,19 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: "CASCADE",
       });
 
-      Expense.hasMany(models.Category, {
-        as: "CategoryExpenseRelation",
-        foreignKey: "categoryId",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-      });
+      // Expense.hasMany(models.Category, {
+      //   as: "CategoryExpenseRelation",
+      //   foreignKey: "categoryId",
+      //   onDelete: "CASCADE",
+      //   onUpdate: "CASCADE",
+      // });
 
-      Expense.hasMany(models.ExpenseTag, {
-        as: "ExpenseExpenseTagRelation",
-        foreignKey: "expenseId",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-      });
+      // Expense.hasMany(models.ExpenseTag, {
+      //   as: "ExpenseExpenseTagRelation",
+      //   foreignKey: "expenseId",
+      //   onDelete: "CASCADE",
+      //   onUpdate: "CASCADE",
+      // });
     }
   }
   Expense.init(
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       userId: { type: DataTypes.INTEGER, allowNull: false },
       note: DataTypes.STRING,
       image: DataTypes.STRING,
-      categoryId: { type: DataTypes.INTEGER, allowNull: false },
+      // categoryId: { type: DataTypes.INTEGER, allowNull: false },
       expenseDate: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -55,6 +55,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+      },
+      categoryName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      amount: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
       },
     },
     {

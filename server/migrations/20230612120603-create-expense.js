@@ -29,16 +29,16 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
-      categoryId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "Categories",
-          key: "id",
-        },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-      },
+      // categoryId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: "Categories",
+      //     key: "id",
+      //   },
+      //   onDelete: "CASCADE",
+      //   onUpdate: "CASCADE",
+      // },
       expenseDate: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -48,6 +48,14 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+      },
+      categoryName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      amount: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
       },
       archived: {
         type: Sequelize.BOOLEAN,
