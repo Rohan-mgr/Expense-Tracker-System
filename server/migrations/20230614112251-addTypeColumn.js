@@ -7,20 +7,18 @@ module.exports = {
      * Add altering commands here.
      *
      * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     await queryInterface.addColumn("Expenses", "type", {
       type: Sequelize.STRING,
       allowNull: false,
       defaultValue: "expense",
     });
-    // await queryInterface.addColumn("Expenses", "amount", {
-    //   type: Sequelize.DOUBLE,
-    //   allowNull: false,
-    // });
-    // await queryInterface.addColumn("Expenses", "expenseId", {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false,
-    // });
+    await queryInterface.addColumn("Incomes", "type", {
+      type: Sequelize.STRING,
+      allowNull: false,
+      defaultValue: "income",
+    });
   },
 
   async down(queryInterface, Sequelize) {
@@ -31,7 +29,6 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
     await queryInterface.removeColumn("Expenses", "type");
-    // await queryInterface.removeColumn("Expenses", "amount");
-    // await queryInterface.removeColumn("Expenses", "expenseId");
+    await queryInterface.removeColumn("Incomes", "type");
   },
 };

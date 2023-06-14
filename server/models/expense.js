@@ -46,6 +46,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: new Date(),
       },
+      type: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "expense",
+      },
       softDelete: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

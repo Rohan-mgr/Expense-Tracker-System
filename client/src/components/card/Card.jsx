@@ -1,4 +1,3 @@
-import { FaGlobeAsia } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
 import { BsCalendar2DateFill, BsFillDashCircleFill } from "react-icons/bs";
 import { MdOutlineSubtitles } from "react-icons/md";

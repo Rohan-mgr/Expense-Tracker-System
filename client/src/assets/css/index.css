@@ -5,6 +5,8 @@
 @import "./expense_income.css";
 @import "./404.css";
 @import "./card.css";
+@import "./main.css";
+@import "./linechart.css";
 
 :root {
   font-family: 'Nunito', sans-serif;
@@ -13,4 +15,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+p {
+  margin-bottom: 0 !important; 
 }
