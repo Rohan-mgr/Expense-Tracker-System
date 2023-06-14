@@ -25,6 +25,7 @@ nav > .nav__btn__wrapper {
     width: inherit;
 }
 nav > .nav__btn__wrapper > button {
+    background: transparent;
     text-align: left;
     width: 100%;
     border: none; 

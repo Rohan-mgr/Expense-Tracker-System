@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { getALLExpenses } from "../services/transaction";
+import { getALLIncomes } from "../services/transaction";
 
-export default function useFetchAllExpenses(id) {
+export default function useFetchAllIncomes(id) {
   const [isLoading, setIsLoading] = useState(false);
-  const [expenses, setExpensesLists] = useState([]);
+  const [incomes, setIncomesLists] = useState([]);
 
   useEffect(() => {
     const fetchExpenses = async () => {
       setIsLoading(true);
       try {
-        const response = await getALLExpenses(id);
-        setExpensesLists(response?.expensesList.reverse());
+        const response = await getALLIncomes(id);
+        setIncomesLists(response?.incomesList.reverse());
       } catch (e) {
         throw new Error(e);
       } finally {
@@ -20,5 +20,5 @@ export default function useFetchAllExpenses(id) {
     fetchExpenses();
   }, []);
 
-  return { isLoading, expenses, setExpensesLists };
+  return { isLoading, incomes, setIncomesLists };
 }

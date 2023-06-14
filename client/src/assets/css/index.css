@@ -4,6 +4,7 @@
 @import "./login.css";
 @import "./expense_income.css";
 @import "./404.css";
+@import "./card.css";
 
 :root {
   font-family: 'Nunito', sans-serif;

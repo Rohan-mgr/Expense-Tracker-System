@@ -4,16 +4,42 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { MdAddCircleOutline } from "react-icons/md";
 import { useFormik } from "formik";
-import { handleAddExpenses } from "../services/transaction";
+import { handleAddExpenses, deleteExpense } from "../services/transaction";
 import { getLoggedUser } from "../utils/storage";
 import useFetchAllExpenses from "../hooks/useFetchAllExpenses";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
+import Card from "../components/card/card";
 
 function Expense() {
   const navigate = useNavigate();
   const { id } = getLoggedUser();
-  const { isLoading, expenses, setExpensesLists } = useFetchAllExpenses();
+  const { isLoading, expenses, setExpensesLists } = useFetchAllExpenses(id);
+
+  const getTotal = () => {
+    const amounts = expenses.map((e) => e?.amount);
+    return amounts.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+  };
+
+  const handleExpenseDelete = async (id) => {
+    console.log("clicked", id);
+    try {
+      const response = await deleteExpense(id);
+      console.log(response);
+
+      const updatedExpensesList = expenses?.filter(
+        (e) => e?.id !== response?.deletedExpense?.id
+      );
+
+      setExpensesLists(updatedExpensesList);
+      navigate("/admin/expense");
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -29,7 +55,7 @@ function Expense() {
         console.log(response);
 
         setExpensesLists((prevState) => {
-          return [...prevState, response?.newExpense];
+          return [response?.newExpense, ...prevState].reverse();
         });
         navigate("/admin/expense");
       } catch (error) {
@@ -45,7 +71,7 @@ function Expense() {
       <h4>Expenses</h4>
       <div className="expense__income__header">
         <h5>
-          Total Expenses: <strong>$564</strong>
+          Total Expenses: <strong>${getTotal()}</strong>
         </h5>
       </div>
       <Row>
@@ -125,17 +151,27 @@ function Expense() {
             </Button>
           </Form>
         </div>
-        <div className="col-12 col-md-8 col-lg-8">
+        <div className="col-12 col-md-8 col-lg-8 mt-4 card__container">
           {isLoading ? (
             <div style={{ textAlign: "center" }}>
               <Spinner animation="border" variant="dark" />
             </div>
           ) : expenses?.length > 0 ? (
             expenses?.reverse()?.map((e) => {
-              return <p key={e?.id}>{e?.categoryName}</p>;
+              return (
+                <Card
+                  key={e?.id}
+                  category={e?.categoryName}
+                  date={e?.expenseDate}
+                  amount={e?.amount}
+                  title={e?.title}
+                  isExpenses
+                  func={() => handleExpenseDelete(e?.id)}
+                />
+              );
             })
           ) : (
-            <p style={{ textAlign: "center" }}>No Projects Found!</p>
+            <p style={{ textAlign: "center" }}>No Expenses List Found!</p>
           )}
         </div>
       </Row>

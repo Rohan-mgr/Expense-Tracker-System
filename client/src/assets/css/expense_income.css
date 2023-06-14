@@ -15,6 +15,23 @@
     text-align: center;
 }
 
+.card__container {
+    height: calc(100vh - 11rem);
+    overflow-y: scroll;
+}
+
+.card__container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.card__container::-webkit-scrollbar-track {
+    outline: none;
+}
+
+.card__container::-webkit-scrollbar-thumb {
+    background-color: rgba(34, 34, 96, 1);
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
