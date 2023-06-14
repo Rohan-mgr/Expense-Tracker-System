@@ -1,0 +1,75 @@
+.salary__expense__info__wrapper {
+    color: rgba(34, 34, 96, 1) !important;
+}
+.salary__expense__class > p {
+    font-weight: 700;
+}
+.salary__expense__class > span {
+    font-weight: 500;
+}
+.salary__expense__class {
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+.salary__expense__info {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(252, 246, 249, 0.78);
+    border: 2px solid #FFFFFF;
+    padding: .5rem;
+    border-radius: 15px;
+    margin: .3rem 0 1rem 0;
+}
+.container-fluid .recent__history__heading {
+    font-weight: 700;;
+}
+
+.recent__history {
+    height: fit-content;
+    max-height: 40vh;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+}
+
+.recent__history > p {
+    display: flex;
+    margin: 5px 0; 
+    justify-content: space-between;
+    background: rgba(252, 246, 249, 0.78);
+    border: 2px solid #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.amounts__wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.amounts__wrapper > .amounts > span {font-weight: 500}
+
+.amounts__wrapper > .amounts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.2rem;
+    border-radius: 15px;
+    height: 10vh;
+    background: rgba(252, 246, 249, 0.78);
+    border: 2px solid #FFFFFF;
+}
+
+.recent__history::-webkit-scrollbar {
+    width: 5px;
+}
+
+.recent__history::-webkit-scrollbar-track {
+    outline: none;
+}
+
+.recent__history::-webkit-scrollbar-thumb {
+    background-color: rgba(34, 34, 96, 1);
+}

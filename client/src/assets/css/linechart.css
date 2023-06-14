@@ -1,0 +1,10 @@
+.chart__wrapper {
+    height: 50vh;
+    background-color: #FCF6F9;
+}
+
+@media (max-width: 480px) {
+    .chart__wrapper {
+        height: 35vh;
+    }
+}
