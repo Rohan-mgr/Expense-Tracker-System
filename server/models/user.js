@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Category, {
-        as: "UserCategoryRelation",
-        foreignKey: "createdBy",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-      });
+      // User.hasMany(models.Category, {
+      //   as: "UserCategoryRelation",
+      //   foreignKey: "createdBy",
+      //   onDelete: "CASCADE",
+      //   onUpdate: "CASCADE",
+      // });
 
       User.hasMany(models.Tag, {
         as: "UserTagRelation",
@@ -25,6 +25,13 @@ module.exports = (sequelize, DataTypes) => {
 
       User.hasMany(models.Expense, {
         as: "UserExpenseRelation",
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+
+      User.hasMany(models.Income, {
+        as: "UserIncomeRelation",
         foreignKey: "userId",
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

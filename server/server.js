@@ -1,8 +1,8 @@
 const express = require("express");
 require("dotenv").config();
-// const sequelize = require("./config/db");
 const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
+const transactionRoutes = require("./routes/transaction.routes");
 
 const app = express();
 
@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use("/user", userRoutes);
+app.use("/transaction", transactionRoutes);
 
 app.use((error, req, res, next) => {
   const status = error.statusCode || 500;

@@ -9,19 +9,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Category.belongsTo(models.User, {
-        as: "UserCategoryRelation",
-        foreignKey: "createdBy",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-      });
-
-      Category.belongsTo(models.Expense, {
-        as: "CategoryExpenseRelation",
-        foreignKey: "categoryId",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-      });
+      // Category.belongsTo(models.User, {
+      //   as: "UserCategoryRelation",
+      //   foreignKey: "createdBy",
+      //   onDelete: "CASCADE",
+      //   onUpdate: "CASCADE",
+      // });
+      // Category.belongsTo(models.Expense, {
+      //   as: "CategoryExpenseRelation",
+      //   foreignKey: "categoryId",
+      //   onDelete: "CASCADE",
+      //   onUpdate: "CASCADE",
+      // });
     }
   }
   Category.init(

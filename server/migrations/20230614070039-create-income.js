@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Expenses", {
+    await queryInterface.createTable("Incomes", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -26,28 +26,10 @@ module.exports = {
       note: {
         type: Sequelize.STRING,
       },
-      image: {
-        type: Sequelize.STRING,
-      },
-      // categoryId: {
-      //   type: Sequelize.INTEGER,
-      //   allowNull: false,
-      //   references: {
-      //     model: "Categories",
-      //     key: "id",
-      //   },
-      //   onDelete: "CASCADE",
-      //   onUpdate: "CASCADE",
-      // },
-      expenseDate: {
+      incomeDate: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: new Date(),
-      },
-      softDelete: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
       },
       categoryName: {
         type: Sequelize.STRING,
@@ -56,11 +38,6 @@ module.exports = {
       amount: {
         type: Sequelize.DOUBLE,
         allowNull: false,
-      },
-      archived: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -73,6 +50,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Expenses");
+    await queryInterface.dropTable("Incomes");
   },
 };

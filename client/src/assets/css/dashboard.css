@@ -7,10 +7,8 @@
     background: linear-gradient(184deg, rgb(247, 130, 165) 10%, rgb(219, 213, 213) 100%, rgb(233, 219, 219) 100%);
 }
 .dashboard > main {
-    border: 1px solid #fff;
     position: relative;
     flex: 1;
-    text-align: center;
 }
 
 .dashboard > aside {
@@ -31,7 +29,7 @@
     height: fit-content; 
     position: absolute;
     background: #FCF6F9;
-    top: -1px; 
+    top: 0; 
     left: -6px; 
     cursor: pointer;
     border-top-right-radius: 15px;

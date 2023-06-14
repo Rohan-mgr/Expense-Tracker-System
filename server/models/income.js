@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Expense extends Model {
+  class Income extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,29 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Expense.belongsTo(models.User, {
-        as: "UserExpenseRelation",
+      Income.belongsTo(models.User, {
+        as: "UserIncomeRelation",
         foreignKey: "userId",
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       });
-
-      // Expense.hasMany(models.Category, {
-      //   as: "CategoryExpenseRelation",
-      //   foreignKey: "categoryId",
-      //   onDelete: "CASCADE",
-      //   onUpdate: "CASCADE",
-      // });
-
-      // Expense.hasMany(models.ExpenseTag, {
-      //   as: "ExpenseExpenseTagRelation",
-      //   foreignKey: "expenseId",
-      //   onDelete: "CASCADE",
-      //   onUpdate: "CASCADE",
-      // });
     }
   }
-  Expense.init(
+  Income.init(
     {
       title: {
         type: DataTypes.STRING,
@@ -39,22 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       userId: { type: DataTypes.INTEGER, allowNull: false },
       note: DataTypes.STRING,
-      image: DataTypes.STRING,
-      // categoryId: { type: DataTypes.INTEGER, allowNull: false },
-      expenseDate: {
+      incomeDate: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: new Date(),
-      },
-      softDelete: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
-      },
-      archived: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
       },
       categoryName: {
         type: DataTypes.STRING,
@@ -67,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Expense",
+      modelName: "Income",
     }
   );
-  return Expense;
+  return Income;
 };
