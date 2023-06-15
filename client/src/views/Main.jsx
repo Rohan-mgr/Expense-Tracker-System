@@ -91,18 +91,22 @@ function Main() {
           <p className="recent__history__heading">Recent History</p>
           <div className="recent__history__wrapper">
             <div className="recent__history">
-              {recentTransactions?.map((t) => {
-                return (
-                  <p
-                    key={t?.id}
-                    style={{
-                      color: `${t?.type === "expense" ? "crimson" : "green"}`,
-                    }}
-                  >
-                    <span>{t?.title}</span> <span>$ {t?.amount}</span>
-                  </p>
-                );
-              })}
+              {recentTransactions?.length < 1 ? (
+                <h4 className="text-center my-4">No Transactions found!</h4>
+              ) : (
+                recentTransactions?.map((t) => {
+                  return (
+                    <p
+                      key={t?.id}
+                      style={{
+                        color: `${t?.type === "expense" ? "crimson" : "green"}`,
+                      }}
+                    >
+                      <span>{t?.title}</span> <span>$ {t?.amount}</span>
+                    </p>
+                  );
+                })
+              )}
             </div>
           </div>
           <div></div>
@@ -113,8 +117,8 @@ function Main() {
               <span>Max</span>
             </div>
             <div className="salary__expense__info">
-              <p>$ {lowestExpense}</p>
-              <p>$ {highestExpense}</p>
+              <p>$ {lowestExpense || 0}</p>
+              <p>$ {highestExpense || 0}</p>
             </div>
           </div>
           <div className="salary__expense__info__wrapper">
@@ -124,8 +128,8 @@ function Main() {
               <span>Max</span>
             </div>
             <div className="salary__expense__info">
-              <p>$ {lowestIncome}</p>
-              <p>$ {highestIncome}</p>
+              <p>$ {lowestIncome || 0}</p>
+              <p>$ {highestIncome || 0}</p>
             </div>
           </div>
         </div>
