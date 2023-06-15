@@ -10,6 +10,7 @@ import useFetchAllExpenses from "../hooks/useFetchAllExpenses";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/card/card";
+import { expenseCategory } from "../utils/categories";
 
 function Expense() {
   const navigate = useNavigate();
@@ -119,14 +120,13 @@ function Expense() {
                 onChange={formik.handleChange}
               >
                 <option value="">Expense Category</option>
-                <option value="education">Education</option>
-                <option value="groceries">Groceries</option>
-                <option value="health">Health</option>
-                <option value="subscriptions">Subscriptions</option>
-                <option value="takeaways">Takeaways</option>
-                <option value="clothing">Clothing</option>
-                <option value="travelling">Travelling</option>
-                <option value="other">Other</option>
+                {expenseCategory?.map((e) => {
+                  return (
+                    <option key={e?.value} value={e?.value}>
+                      {e?.category}
+                    </option>
+                  );
+                })}
               </Form.Control>
             </Form.Group>
 

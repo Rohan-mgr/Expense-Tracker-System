@@ -10,6 +10,7 @@ import useFetchAllIncomes from "../hooks/useFetchAllIncomes";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/card/card";
+import { incomeCategory } from "../utils/categories";
 
 function Income() {
   const navigate = useNavigate();
@@ -121,14 +122,13 @@ function Income() {
                 onChange={formik.handleChange}
               >
                 <option value="">Income Category</option>
-                <option value="salary">Salary</option>
-                <option value="freelancing">Freelancing</option>
-                <option value="investments">Investiments</option>
-                <option value="stocks">Stocks</option>
-                <option value="bitcoin">Bitcoin</option>
-                <option value="bank">Bank Transfer</option>
-                <option value="youtube">Youtube</option>
-                <option value="other">Other</option>
+                {incomeCategory?.map((i) => {
+                  return (
+                    <option key={i?.value} value={i?.value}>
+                      {i?.category}
+                    </option>
+                  );
+                })}
               </Form.Control>
             </Form.Group>
 
