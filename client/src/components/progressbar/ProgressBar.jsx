@@ -6,9 +6,7 @@ function ProgressBar({ category, transactions }) {
     <div className="progress__bar__wrapper mt-2">
       <div className="progress__bar__header">
         <span>{category}</span>
-        <span>
-          {0 || (occur / transactions?.length || 0 * 100).toFixed(0)}%
-        </span>
+        <span>{((occur / transactions?.length || 0) * 100).toFixed(0)}%</span>
       </div>
 
       <div className="progress__bar">
