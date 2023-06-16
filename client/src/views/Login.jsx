@@ -8,6 +8,7 @@ import { signInFormValidation } from "../validation-schema/validation";
 import { _setSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
 import { FaUserAlt } from "react-icons/fa";
+import Typewriter from "typewriter-effect";
 
 function Login() {
   const navigate = useNavigate();
@@ -53,7 +54,16 @@ function Login() {
 
   return (
     <div className="login">
-      <h1>Welcome To Expense Tracer System</h1>
+      <Typewriter
+        options={{
+          strings: [
+            "<h1 style='text-align: center;margin-bottom: 2rem'>Welcome To Expense Tracer System</h1>",
+          ],
+          autoStart: true,
+          loop: true,
+        }}
+      />
+
       <Form onSubmit={formik.handleSubmit}>
         <div className="login__icon__wrapper">
           <FaUserAlt />

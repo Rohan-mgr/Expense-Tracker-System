@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import { signUpFormValidation } from "../validation-schema/validation";
 import { handleUserSignup } from "../services/auth";
 import { FaUserAlt } from "react-icons/fa";
+import Typewriter from "typewriter-effect";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -33,7 +34,15 @@ function SignUp() {
 
   return (
     <div className="login">
-      <h1>Welcome To Expense Tracer System</h1>
+      <Typewriter
+        options={{
+          strings: [
+            "<h1 style='text-align: center;margin-bottom: 2rem'>Welcome To Expense Tracer System</h1>",
+          ],
+          autoStart: true,
+          loop: true,
+        }}
+      />
       <Form onSubmit={formik.handleSubmit}>
         <div className="login__icon__wrapper">
           <FaUserAlt />
