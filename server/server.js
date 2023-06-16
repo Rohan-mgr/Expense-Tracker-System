@@ -1,11 +1,13 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
+const helmet = require("helmet");
 const userRoutes = require("./routes/user.routes");
 const transactionRoutes = require("./routes/transaction.routes");
 
 const app = express();
 
+app.use(helmet());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
