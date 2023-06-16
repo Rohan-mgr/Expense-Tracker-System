@@ -5,6 +5,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useFormik } from "formik";
 import { signUpFormValidation } from "../validation-schema/validation";
 import { handleUserSignup } from "../services/auth";
+import { FaUserAlt } from "react-icons/fa";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -34,6 +35,9 @@ function SignUp() {
     <div className="login">
       <h1>Welcome To Expense Tracer System</h1>
       <Form onSubmit={formik.handleSubmit}>
+        <div className="login__icon__wrapper">
+          <FaUserAlt />
+        </div>
         <Form.Group className="mb-3" controlId="formFirstName">
           <Form.Label>First Name</Form.Label>
           <Form.Control
@@ -91,7 +95,7 @@ function SignUp() {
             <div className="invalid-feedback">{formik.errors.password}</div>
           )}
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit" className="w-100">
           Submit
         </Button>
         <Form.Group className="mt-3 text-center" controlId="formBasicPassword">
