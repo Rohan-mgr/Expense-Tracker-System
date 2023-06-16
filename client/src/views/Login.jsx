@@ -7,6 +7,7 @@ import { handleUserSignin } from "../services/auth";
 import { signInFormValidation } from "../validation-schema/validation";
 import { _setSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
+import { FaUserAlt } from "react-icons/fa";
 
 function Login() {
   const navigate = useNavigate();
@@ -54,6 +55,9 @@ function Login() {
     <div className="login">
       <h1>Welcome To Expense Tracer System</h1>
       <Form onSubmit={formik.handleSubmit}>
+        <div className="login__icon__wrapper">
+          <FaUserAlt />
+        </div>
         {status && (
           <Alert
             status
@@ -93,7 +97,7 @@ function Login() {
             <div className="invalid-feedback">{formik.errors.password}</div>
           )}
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit" className="w-100">
           Submit
         </Button>
         <Form.Group className="mt-3" controlId="formBasicPassword">
