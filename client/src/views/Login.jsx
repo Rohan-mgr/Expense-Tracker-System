@@ -7,7 +7,9 @@ import { handleUserSignin } from "../services/auth";
 import { signInFormValidation } from "../validation-schema/validation";
 import { _setSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaGoogle } from "react-icons/fa";
+import { AiOutlineGoogle } from "react-icons/ai";
+import Typewriter from "typewriter-effect";
 
 function Login() {
   const navigate = useNavigate();
@@ -40,7 +42,7 @@ function Login() {
           user: response?.loggedUser,
           expiryDate: expiryDate.toISOString(),
         });
-        navigate("/admin/dashboard");
+        navigate("/dashboard");
       } catch (error) {
         setStatus({ message: error });
         throw new Error(error);
@@ -53,7 +55,16 @@ function Login() {
 
   return (
     <div className="login">
-      <h1>Welcome To Expense Tracer System</h1>
+      <Typewriter
+        options={{
+          strings: [
+            "<h1 style='text-align: center;margin-bottom: 2rem'>Welcome To Expense Tracer System</h1>",
+          ],
+          autoStart: true,
+          loop: true,
+        }}
+      />
+
       <Form onSubmit={formik.handleSubmit}>
         <div className="login__icon__wrapper">
           <FaUserAlt />
@@ -99,6 +110,9 @@ function Login() {
         </Form.Group>
         <Button variant="dark" type="submit" className="w-100">
           Submit
+        </Button>
+        <Button variant="dark" className="w-100 mt-1">
+          <FaGoogle style={{ marginTop: "-4px" }} /> Sign In with Google
         </Button>
         <Form.Group className="mt-3" controlId="formBasicPassword">
           <Form.Label>

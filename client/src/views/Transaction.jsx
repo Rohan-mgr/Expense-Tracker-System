@@ -10,7 +10,6 @@ function Transaction() {
   const { id } = getLoggedUser();
   const { isLoading, expenses } = useFetchAllExpenses(id);
   const { incomes } = useFetchAllIncomes(id);
-  console.log(expenses);
 
   return (
     <Container fluid>
@@ -27,7 +26,7 @@ function Transaction() {
               return (
                 <ProgressBar
                   key={e?.id}
-                  category={e?.category}
+                  category={e?.value}
                   transactions={expenses}
                 />
               );
@@ -47,7 +46,7 @@ function Transaction() {
               return (
                 <ProgressBar
                   key={e?.id}
-                  category={e?.category}
+                  category={e?.value}
                   transactions={incomes}
                 />
               );

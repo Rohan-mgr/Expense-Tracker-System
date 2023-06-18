@@ -9,6 +9,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-y: scroll;
+}
+.Typewriter__wrapper {
+    display: inline-block !important;
+}
+.Typewriter__cursor {
+    font-size: 2.5rem;
 }
 .login::before {
     content: "";

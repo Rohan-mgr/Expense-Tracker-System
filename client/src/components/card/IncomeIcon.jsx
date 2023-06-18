@@ -22,7 +22,7 @@ function IncomeIcon(category) {
     case "bitcoin":
       Icon = <FaBitcoin />;
       break;
-    case "bank":
+    case "banktransfer":
       Icon = <BsBank />;
       break;
     case "youtube":

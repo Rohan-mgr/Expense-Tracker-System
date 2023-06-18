@@ -36,7 +36,7 @@ function Income() {
       );
 
       setIncomesLists(updatedIncomesList);
-      navigate("/admin/income");
+      navigate("/income");
     } catch (error) {
       throw new Error(error);
     }
@@ -59,7 +59,7 @@ function Income() {
         setIncomesLists((prevState) => {
           return [response?.newIncome, ...prevState].reverse();
         });
-        navigate("/admin/income");
+        navigate("/income");
       } catch (error) {
         throw new Error(error);
       } finally {

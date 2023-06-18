@@ -36,7 +36,7 @@ function Expense() {
       );
 
       setExpensesLists(updatedExpensesList);
-      navigate("/admin/expense");
+      navigate("/expense");
     } catch (error) {
       throw new Error(error);
     }
@@ -58,7 +58,7 @@ function Expense() {
         setExpensesLists((prevState) => {
           return [response?.newExpense, ...prevState].reverse();
         });
-        navigate("/admin/expense");
+        navigate("/expense");
       } catch (error) {
         throw new Error(error);
       } finally {
