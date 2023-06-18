@@ -1,11 +1,12 @@
 function ProgressBar({ category, transactions }) {
-  const occur = transactions.filter(
-    (e) => e?.categoryName === category.toLowerCase()
-  )?.length;
+  const occur = transactions.filter((e) => {
+    return e?.categoryName.toLowerCase() === category.toLowerCase();
+  })?.length;
+  console.log(transactions);
   return (
     <div className="progress__bar__wrapper mt-2">
       <div className="progress__bar__header">
-        <span>{category}</span>
+        <span>{category.toUpperCase()}</span>
         <span>{((occur / transactions?.length || 0) * 100).toFixed(0)}%</span>
       </div>
 

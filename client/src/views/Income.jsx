@@ -36,7 +36,7 @@ function Income() {
       );
 
       setIncomesLists(updatedIncomesList);
-      navigate("/admin/income");
+      navigate("/income");
     } catch (error) {
       throw new Error(error);
     }

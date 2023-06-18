@@ -36,7 +36,7 @@ function Expense() {
       );
 
       setExpensesLists(updatedExpensesList);
-      navigate("/admin/expense");
+      navigate("/expense");
     } catch (error) {
       throw new Error(error);
     }

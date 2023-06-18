@@ -7,7 +7,8 @@ import { handleUserSignin } from "../services/auth";
 import { signInFormValidation } from "../validation-schema/validation";
 import { _setSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaGoogle } from "react-icons/fa";
+import { AiOutlineGoogle } from "react-icons/ai";
 import Typewriter from "typewriter-effect";
 
 function Login() {
@@ -111,7 +112,7 @@ function Login() {
           Submit
         </Button>
         <Button variant="dark" className="w-100 mt-1">
-          Sign In with Google
+          <FaGoogle style={{ marginTop: "-4px" }} /> Sign In with Google
         </Button>
         <Form.Group className="mt-3" controlId="formBasicPassword">
           <Form.Label>
