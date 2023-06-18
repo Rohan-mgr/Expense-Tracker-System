@@ -24,7 +24,7 @@ function Navigation() {
       <ul>
         <li>
           <NavLink
-            to="dashboard"
+            to="/dashboard"
             className={({ isActive }) => isActive && "active"}
           >
             <TbGraph /> Dashboard
@@ -32,7 +32,7 @@ function Navigation() {
         </li>
         <li>
           <NavLink
-            to="view-transaction"
+            to="/view-transaction"
             className={({ isActive }) => isActive && "active"}
           >
             <CiViewTimeline /> View Transaction
@@ -40,7 +40,7 @@ function Navigation() {
         </li>
         <li>
           <NavLink
-            to="expense"
+            to="/expense"
             className={({ isActive }) => isActive && "active"}
           >
             <MdMoney /> Expense
@@ -48,7 +48,7 @@ function Navigation() {
         </li>
         <li>
           <NavLink
-            to="income"
+            to="/income"
             className={({ isActive }) => isActive && "active"}
           >
             <TbPigMoney /> Income

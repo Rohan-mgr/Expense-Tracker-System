@@ -41,7 +41,7 @@ function Login() {
           user: response?.loggedUser,
           expiryDate: expiryDate.toISOString(),
         });
-        navigate("/admin/dashboard");
+        navigate("/dashboard");
       } catch (error) {
         setStatus({ message: error });
         throw new Error(error);
@@ -109,6 +109,9 @@ function Login() {
         </Form.Group>
         <Button variant="dark" type="submit" className="w-100">
           Submit
+        </Button>
+        <Button variant="dark" className="w-100 mt-1">
+          Sign In with Google
         </Button>
         <Form.Group className="mt-3" controlId="formBasicPassword">
           <Form.Label>

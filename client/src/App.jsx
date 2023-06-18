@@ -17,17 +17,17 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route
-          path="/admin"
+          // path="/admin"
           element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
         >
-          <Route path="dashboard" element={<Main />} />
-          <Route path="view-transaction" element={<Transaction />} />
-          <Route path="expense" element={<Expense />} />
-          <Route path="income" element={<Income />} />
+          <Route path="/dashboard" element={<Main />} />
+          <Route path="/view-transaction" element={<Transaction />} />
+          <Route path="/expense" element={<Expense />} />
+          <Route path="/income" element={<Income />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
