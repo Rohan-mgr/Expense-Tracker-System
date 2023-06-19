@@ -8,8 +8,8 @@ import { signInFormValidation } from "../validation-schema/validation";
 import { _setSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
 import { FaUserAlt, FaGoogle } from "react-icons/fa";
-import { AiOutlineGoogle } from "react-icons/ai";
 import Typewriter from "typewriter-effect";
+import { handleGoogleSignin } from "../services/auth";
 
 function Login() {
   const navigate = useNavigate();
@@ -52,6 +52,16 @@ function Login() {
     },
     validationSchema: signInFormValidation,
   });
+
+  const handleGoogleLogin = async () => {
+    console.log("google login clicked");
+    try {
+      const response = await handleGoogleSignin();
+      console.log(response);
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 
   return (
     <div className="login">
@@ -111,7 +121,11 @@ function Login() {
         <Button variant="dark" type="submit" className="w-100">
           Submit
         </Button>
-        <Button variant="dark" className="w-100 mt-1">
+        <Button
+          variant="dark"
+          onClick={handleGoogleLogin}
+          className="w-100 mt-1"
+        >
           <FaGoogle style={{ marginTop: "-4px" }} /> Sign In with Google
         </Button>
         <Form.Group className="mt-3" controlId="formBasicPassword">

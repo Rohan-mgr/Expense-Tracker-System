@@ -14,3 +14,10 @@ export const handleUserSignin = async (credentials) => {
   console.log(response);
   return response;
 };
+export const handleGoogleSignin = async () => {
+  const URL = AUTH_ENDPOINT.googleLogin;
+  console.log(URL);
+  const response = await httpAuth.get(URL);
+  console.log(response);
+  return response;
+};
