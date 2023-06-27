@@ -7,15 +7,24 @@ const passport = require("passport");
 const userRoutes = require("./routes/user.routes");
 const transactionRoutes = require("./routes/transaction.routes");
 const googleAuthRoutes = require("./routes/googleAuth.routes");
+const session = require("express-session");
 
 const app = express();
 
+app.use(
+  session({
+    secret: `${process.env.SESSION_SECRET}`,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(helmet());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(passport.initialize());
-// app.use(passport.session());
 
 app.use("/auth", googleAuthRoutes);
 app.use("/user", userRoutes);

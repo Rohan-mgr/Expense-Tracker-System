@@ -9,12 +9,13 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
+      scope: ["profile", "email"],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        console.log(profile);
+        console.log(profile, ">> from profile");
         // Check if the user already exists in the database
-        const user = await User.findOne({ where: { googleId: profile.id } });
+        const user = await User.findOne({ where: { googleId: profile?.id } });
 
         if (user) {
           // User already exists, return the user
@@ -27,10 +28,10 @@ passport.use(
 
           // User does not exist, create a new record in the database
           const newUser = await User.create({
-            googleId: profile.id,
-            email: profile.emails[0].value,
-            firstName: profile.displayName,
-            lastName: profile.displayName,
+            googleId: profile?.id,
+            email: profile?.emails[0].value,
+            firstName: profile?.name?.givenName,
+            lastName: profile?.name?.familyName,
             password: hashedPassword,
           });
 

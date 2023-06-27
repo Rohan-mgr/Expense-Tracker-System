@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
   User.init(
     {
       googleId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.NUMERIC,
       },
       firstName: {
         type: DataTypes.STRING,
