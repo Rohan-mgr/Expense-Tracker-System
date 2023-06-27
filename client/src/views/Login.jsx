@@ -9,7 +9,7 @@ import { _setSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
 import { FaUserAlt, FaGoogle } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
-import { handleGoogleSignin } from "../services/auth";
+import { AUTH_ENDPOINT } from "../utils/endpoint";
 
 function Login() {
   const navigate = useNavigate();
@@ -54,13 +54,14 @@ function Login() {
   });
 
   const handleGoogleLogin = async () => {
-    console.log("google login clicked");
-    try {
-      const response = await handleGoogleSignin();
-      console.log(response);
-    } catch (error) {
-      throw new Error(error);
-    }
+    console.log("google login clicked", AUTH_ENDPOINT.googleLogin);
+    window.open(AUTH_ENDPOINT.googleLogin, "_self");
+    // try {
+    //   const response = window.open(handleGoogleSignin(), "_self");
+    //   console.log(response);
+    // } catch (error) {
+    //   throw new Error(error);
+    // }
   };
 
   return (

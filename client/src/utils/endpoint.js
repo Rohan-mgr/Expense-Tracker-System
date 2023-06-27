@@ -3,7 +3,7 @@ import { config } from "../config";
 export const AUTH_ENDPOINT = {
   signUp: config.baseURL + "/user/signup",
   signIn: config.baseURL + "/user/signin",
-  googleLogin: config.baseURL + "/auth/google",
+  googleLogin: config.baseURL + "/auth/google/callback",
 };
 
 export const TRANSACTION_ENDPOINT = {
