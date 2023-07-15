@@ -4,6 +4,8 @@ export const AUTH_ENDPOINT = {
   signUp: config.baseURL + "/user/signup",
   signIn: config.baseURL + "/user/signin",
   googleLogin: config.baseURL + "/auth/google/callback",
+  googleLogOut: config.baseURL + "/auth/logout",
+  getGoogleUser: config.baseURL + "/auth/login/success",
 };
 
 export const TRANSACTION_ENDPOINT = {

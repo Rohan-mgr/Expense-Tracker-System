@@ -26,10 +26,8 @@ function Income() {
   };
 
   const handleIncomeDelete = async (id) => {
-    console.log("clicked", id);
     try {
       const response = await deleteIncomes(id);
-      console.log(response);
 
       const updatedIncomesList = incomes?.filter(
         (i) => i?.id !== response?.deletedIncome?.id
@@ -52,9 +50,7 @@ function Income() {
     },
     onSubmit: async (values, { resetForm }) => {
       try {
-        console.log(values);
         const response = await handleAddIncomes(values, id);
-        console.log(response);
 
         setIncomesLists((prevState) => {
           return [response?.newIncome, ...prevState].reverse();

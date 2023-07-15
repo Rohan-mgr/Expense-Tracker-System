@@ -13,7 +13,8 @@
 
 .dashboard > aside {
     z-index: 1;
-    width: 220px;
+    max-width: fit-content;
+    min-width: 220px;
     padding: 10px;
     background: #FCF6F9;
     border: 2px solid #FFFFFF;
@@ -34,6 +35,7 @@
     cursor: pointer;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    z-index: 99;
 }
 @media (max-width: 480px) {
     .dashboard {

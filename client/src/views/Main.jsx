@@ -18,8 +18,6 @@ function Main() {
     recentTransactions,
   } = Misc(id);
 
-  console.log(recentTransactions);
-
   useEffect(() => {
     const expiryDate = _getSecureLs("auth")?.expiryDate;
 

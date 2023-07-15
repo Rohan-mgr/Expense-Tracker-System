@@ -2,12 +2,8 @@ import useFetchAllExpenses from "../hooks/useFetchAllExpenses";
 import useFetchAllIncomes from "../hooks/useFetchAllIncomes";
 
 export default function Misc(id) {
-  console.log(id);
-
   const { expenses } = useFetchAllExpenses(id);
   const { incomes } = useFetchAllIncomes(id);
-
-  console.log(incomes, "all incomes");
 
   const expenseAmounts = expenses.map((e) => e?.amount);
   const totalExpense = expenseAmounts.reduce(
@@ -22,7 +18,6 @@ export default function Misc(id) {
   );
 
   const sortedExpenses = expenses.map((e) => e?.amount).sort((a, b) => a - b);
-  console.log(sortedExpenses, "expenses");
   const highestExpense = sortedExpenses[sortedExpenses.length - 1];
   const lowestExpense = sortedExpenses[0];
 
