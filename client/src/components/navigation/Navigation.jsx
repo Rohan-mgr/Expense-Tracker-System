@@ -5,11 +5,27 @@ import { MdMoney } from "react-icons/md";
 import { HiOutlineLogout } from "react-icons/hi";
 import { TbPigMoney, TbGraph } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import { _removeAll, getLoggedUser } from "../../utils/storage";
+import { _remove, getLoggedUser, _setSecureLs } from "../../utils/storage";
+import { handlegoogleAuthLogout } from "../../services/auth";
 
 function Navigation() {
   const navigate = useNavigate();
   const loggedUser = getLoggedUser();
+
+  const handleLogOut = async () => {
+    try {
+      if (loggedUser?.googleId) {
+        console.log("logout");
+        await handlegoogleAuthLogout();
+      }
+      _remove("auth");
+      _setSecureLs("oauth", { callGoogleUser: false });
+      navigate("/");
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
   return (
     <nav>
       <div className="name__initials__wrapper">
@@ -56,12 +72,7 @@ function Navigation() {
         </li>
       </ul>
       <div className="nav__btn__wrapper">
-        <button
-          onClick={() => {
-            _removeAll();
-            navigate("/");
-          }}
-        >
+        <button onClick={handleLogOut}>
           <HiOutlineLogout /> Sign Out
         </button>
       </div>

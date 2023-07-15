@@ -2,7 +2,6 @@ function ProgressBar({ category, transactions }) {
   const occur = transactions.filter((e) => {
     return e?.categoryName.toLowerCase() === category.toLowerCase();
   })?.length;
-  console.log(transactions);
   return (
     <div className="progress__bar__wrapper mt-2">
       <div className="progress__bar__header">

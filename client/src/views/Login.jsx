@@ -1,19 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { handleUserSignin } from "../services/auth";
+import { handleUserSignin, handleGoogleAuthLogin } from "../services/auth";
 import { signInFormValidation } from "../validation-schema/validation";
-import { _setSecureLs } from "../utils/storage";
+import { _setSecureLs, _getSecureLs } from "../utils/storage";
 import Alert from "../components/Alert/Alert";
 import { FaUserAlt, FaGoogle } from "react-icons/fa";
-import { AiOutlineGoogle } from "react-icons/ai";
 import Typewriter from "typewriter-effect";
+import { AUTH_ENDPOINT } from "../utils/endpoint";
 
 function Login() {
   const navigate = useNavigate();
+  const { callGoogleUser } = _getSecureLs("oauth");
   const [status, setStatus] = useState(null);
+
+  useEffect(() => {
+    const getGoogleLoggedInUser = async () => {
+      try {
+        const response = await handleGoogleAuthLogin();
+        console.log(response);
+        if (!response) {
+          throw new Error("Failed to login");
+        }
+        const remainingMilliseconds = 60 * 60 * 1000;
+        const expiryDate = new Date(
+          new Date().getTime() + remainingMilliseconds
+        );
+        _setSecureLs("auth", {
+          isLoggedIn: true,
+          token: response?.token,
+          user: response?.loggedUser,
+          expiryDate: expiryDate.toISOString(),
+        });
+        navigate("/dashboard");
+      } catch (error) {
+        throw new Error(error);
+      }
+    };
+    if (callGoogleUser) {
+      getGoogleLoggedInUser();
+    }
+  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -52,6 +81,12 @@ function Login() {
     },
     validationSchema: signInFormValidation,
   });
+
+  const handleGoogleLogin = async () => {
+    _setSecureLs("oauth", { callGoogleUser: true });
+    console.log("google login clicked", AUTH_ENDPOINT.googleLogin);
+    window.open(AUTH_ENDPOINT.googleLogin, "_self");
+  };
 
   return (
     <div className="login">
@@ -111,7 +146,11 @@ function Login() {
         <Button variant="dark" type="submit" className="w-100">
           Submit
         </Button>
-        <Button variant="dark" className="w-100 mt-1">
+        <Button
+          variant="dark"
+          onClick={handleGoogleLogin}
+          className="w-100 mt-1"
+        >
           <FaGoogle style={{ marginTop: "-4px" }} /> Sign In with Google
         </Button>
         <Form.Group className="mt-3" controlId="formBasicPassword">

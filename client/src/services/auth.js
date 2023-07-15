@@ -14,3 +14,16 @@ export const handleUserSignin = async (credentials) => {
   console.log(response);
   return response;
 };
+
+export const handleGoogleAuthLogin = async () => {
+  const URL = AUTH_ENDPOINT.getGoogleUser;
+  console.log(URL);
+  const response = await httpAuth.get(URL, { withCredentials: true });
+  return response;
+};
+export const handlegoogleAuthLogout = async () => {
+  const URL = AUTH_ENDPOINT.googleLogOut;
+  console.log(URL);
+  const response = await httpAuth.get(URL);
+  return response;
+};

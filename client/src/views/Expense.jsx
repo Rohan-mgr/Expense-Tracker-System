@@ -26,10 +26,8 @@ function Expense() {
   };
 
   const handleExpenseDelete = async (id) => {
-    console.log("clicked", id);
     try {
       const response = await deleteExpense(id);
-      console.log(response);
 
       const updatedExpensesList = expenses?.filter(
         (e) => e?.id !== response?.deletedExpense?.id
