@@ -51,7 +51,7 @@ exports.handleSignUp = async (req, res, next) => {
   const lName = req.body.lName;
   const email = req.body.email;
   const password = req.body.password;
-  console.log(fName, lName, email, password);
+
   let dupUser;
   try {
     dupUser = await User.findOne({ where: { email: email } });
