@@ -99,6 +99,11 @@ function Login() {
           loop: true,
         }}
       />
+      {callGoogleUser && (
+        <Alert status SetStatus={setStatus} Variant="success">
+          Authenticated. Redirecting to dashboard.......
+        </Alert>
+      )}
 
       <Form onSubmit={formik.handleSubmit}>
         <div className="login__icon__wrapper">
