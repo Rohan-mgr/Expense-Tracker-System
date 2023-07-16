@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get("/login/success", (req, res, next) => {
   try {
-    console.log(req?.user, "after logout");
     if (req?.user === null) {
       const error = new Error("User not found");
       error.statusCode = 404;
@@ -53,7 +52,6 @@ router.get(
 );
 
 router.get("/logout", (req, res) => {
-  console.log("route hitted");
   req.logout((err) => {
     if (err) {
       if (!err.statusCode) {
@@ -63,7 +61,6 @@ router.get("/logout", (req, res) => {
     }
   });
   req.user = null;
-  console.log(req?.user, "logout successfull");
   res.status(200).json({ message: "logout successfull", status: 200 });
 });
 
