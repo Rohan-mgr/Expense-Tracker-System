@@ -12,8 +12,8 @@ passport.use(
       scope: ["profile", "email"],
     },
     async (accessToken, refreshToken, profile, done) => {
+      console.log(profile?._json?.picture, ">> profile url >>");
       try {
-        console.log(profile, ">> from profile");
         // Check if the user already exists in the database
         const user = await User.findOne({ where: { googleId: profile?.id } });
 
@@ -32,6 +32,7 @@ passport.use(
             email: profile?.emails[0].value,
             firstName: profile?.name?.givenName,
             lastName: profile?.name?.familyName,
+            profileUrl: profile?._json?.picture,
             password: hashedPassword,
           });
 

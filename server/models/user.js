@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       googleId: {
         type: DataTypes.NUMERIC,
       },
+      profileUrl: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
