@@ -29,7 +29,13 @@ function Navigation() {
   return (
     <nav>
       <div className="name__initials__wrapper">
-        <NameInitials name={loggedUser?.firstName} />
+        {loggedUser?.profileUrl ? (
+          <div className="user__profile__wrapper">
+            <img src={loggedUser?.profileUrl} alt="user-img" />
+          </div>
+        ) : (
+          <NameInitials name={loggedUser?.firstName} />
+        )}
         <div>
           <p>
             {loggedUser?.firstName} {loggedUser?.lastName}
