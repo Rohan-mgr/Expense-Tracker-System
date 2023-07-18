@@ -67,3 +67,15 @@ ul li a {
     margin-top: .5rem; 
     margin-bottom: 1.5rem;
 }
+.user__profile__wrapper {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 5px; 
+    overflow: hidden;
+}
+.user__profile__wrapper > img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
